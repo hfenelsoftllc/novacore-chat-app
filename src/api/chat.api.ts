@@ -1,8 +1,11 @@
+
 import type { LLMResponse } from "../types/Chat";
 
-const API_URL = 'http://localhost:3000';
+const API_URL = import.meta.env.VITE_API_URL;
 
 async function sendMessageToLLM(message: string): Promise<LLMResponse> {
+    //console.log('API_URL', API_URL);
+    //console.log('message', message);
     const response = await fetch(`${API_URL}/api/chat`, {
         method: 'POST',
         headers: {

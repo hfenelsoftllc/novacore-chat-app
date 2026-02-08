@@ -3,7 +3,7 @@ interface ChatInputProps {
     //onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     sendMessage: (text: string) => void;
     loading: boolean;
-    error: string | null;
+   // error: string | null;
 }
 
 export type { ChatInputProps };

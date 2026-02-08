@@ -3,8 +3,9 @@ import { useState } from 'react';
 //import { messages, MessageChannel} from '../types';
 
 import type { ChatInputProps } from '../types/ChatInputProps';
+//import { error } from 'console';
 
-const ChatInput: React.FC<ChatInputProps> = ({ sendMessage, loading, error }: ChatInputProps) => {
+const ChatInput: React.FC<ChatInputProps> = ({ sendMessage, loading }: ChatInputProps) => {
 
     const [inputValue, setInputValue] = useState('');
 
@@ -39,6 +40,8 @@ const ChatInput: React.FC<ChatInputProps> = ({ sendMessage, loading, error }: Ch
                         placeholder="Type your message..."
                         disabled={loading}
                     />
+                    {/* {error && <div className="text-red-500 text-center">{error}</div>} */}
+                        {/* Send button */}
                     <button
                         onClick={handleSendMessage}
                         disabled={loading || inputValue.trim() === ''}
@@ -46,7 +49,6 @@ const ChatInput: React.FC<ChatInputProps> = ({ sendMessage, loading, error }: Ch
                     >
                         <i className="bi bi-send-fill text-lg"></i>
                     </button>
-                {error && <div className="text-red-500 text-center">{error}</div>}
 
             </div>
         </>
