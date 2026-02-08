@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
 import type { Message } from '../types/Chat';
+import sendMessageToLLM from '../api/chat.api';
 
 
 function useStatefulChat() {
@@ -22,11 +23,14 @@ function useStatefulChat() {
         setError(null);
         try {
             // Simulate sending message to an API and getting a response
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            //await new Promise(resolve => setTimeout(resolve, 1000));
+            const response = await sendMessageToLLM(text);
+            
             const botMessage: Message = { 
                 id: (Date.now() + 1).toString(), 
                 sender: 'bot',
-                message: `${text}`,
+                message: `${response.reply}`,
+                modelName: response?.modelName,
                 timestamp: new Date().toISOString() 
             };
             setMessages(prevMessages => [...prevMessages, botMessage]);

@@ -5,3 +5,9 @@ export interface Message {
     message: string;
     modelName?: string;
 }
+
+
+export interface LLMResponse{
+    reply: string;
+    modelName?: string;
+}
