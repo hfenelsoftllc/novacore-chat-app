@@ -1,0 +1,12 @@
+main::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+main::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+main::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 116, 139, 0.5); /* Tailwind gray-500 with 50% opacity */
+    border-radius: 10px; /* Fully rounded */
+}
